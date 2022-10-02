@@ -1,7 +1,7 @@
 {{ define "main" }}
 
     <div class="post-list-container post-list-container-shadow">
-        {{ range .Paginator.Pages.GroupByDate "2006" }}
+        {{ range .Pages.GroupByDate "2006" }}
             <a class="a-block">
                 <div class="post-item-wrapper post-item-wrapper-no-hover">
                     <div class="post-item post-item-no-gaps">
@@ -13,20 +13,17 @@
                     </div>
                 </div>
             </a>
+            <table style="display: table; margin:auto; width: calc(100% - 70px);" class="table-striped table table-responsive table-hover">
             {{ range .Pages }}
-            <a href="{{ .RelPermalink }}" class="a-block">
-                <div class="post-item-wrapper">
-                    <div class="post-item post-item-no-gaps">
-                        <div class="post-item-info-wrapper">
-                            <div class="post-item-title">
-                                {{.Title}}
-                            </div>
-                            {{ partial "post-item-meta.html" . }}
-                        </div>
-                    </div>
-                </div>
-            </a>
+            <tr>
+                <td>{{ i18n "format_date" .PublishDate }}</td>
+                <td><a href="{{ .RelPermalink }}" class="a-block">
+                    {{ .Title }}
+                </a></td>
+            </tr>
+
             {{ end }}
+            </table>
         {{ end }}
     </div>
 
