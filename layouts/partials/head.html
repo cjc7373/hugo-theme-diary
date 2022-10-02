@@ -95,7 +95,7 @@
 <!-- Plausible Analytics -->
 <script async 
   defer 
-  data-domain="{{ replaceRE "^https?://([^/]+).*" "$1" baseURL }}" 
+  data-domain="{{ replaceRE "^https?://([^/]+).*" "$1" .Site.BaseURL }}"
   src="{{ .Site.Params.plausibleAnalyticsServer }}/js/plausible.js">
 </script>
 <!-- End Plausible Analytics -->
